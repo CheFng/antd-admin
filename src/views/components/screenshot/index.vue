@@ -1,13 +1,11 @@
 <template>
   <a-card title="html2canvas" :hoverable="true" :bordered="false">
-    <a-button type="primary" slot="extra" icon="download" :loading="loading" @click="handleScreen">
-      截屏下载
-    </a-button>
-    <div style="height:500px" class="flex" ref="cutScreen">
-      <div style="width:50%;height:100%">
+    <a-button type="primary" slot="extra" icon="download" :loading="loading" @click="handleScreen"> 截屏下载 </a-button>
+    <div style="height: 500px" class="flex" ref="cutScreen">
+      <div style="width: 50%; height: 100%">
         <more-bar class="all-container" />
       </div>
-      <div style="width:50%;height:100%" class="all-container">
+      <div style="width: 50%; height: 100%" class="all-container">
         <radius-pie class="all-container" />
       </div>
     </div>

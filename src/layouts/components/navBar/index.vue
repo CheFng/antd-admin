@@ -14,15 +14,13 @@
         <svg-icon :icon="isFullscreen ? 'exit-fullscreen' : 'fullscreen'" :size="18" />
       </div>
       <a-tooltip placement="bottom">
-        <template slot="title">
-          主题配置
-        </template>
+        <template slot="title"> 主题配置 </template>
         <div class="right-menu-item pointer boxHover" @click="changeVisible">
           <svg-icon icon="color" :size="18" />
         </div>
       </a-tooltip>
 
-      <div class="right-menu-item pointer boxHover" style="margin-right:15px" @click="toNotice">
+      <div class="right-menu-item pointer boxHover" style="margin-right: 15px" @click="toNotice">
         <a-badge :count="count" :overflow-count="99" :offset="[3, -4]">
           <svg-icon icon="bell" :size="18" />
         </a-badge>

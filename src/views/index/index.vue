@@ -1,5 +1,5 @@
 <template>
-  <div class="index-container  border-box" >
+  <div class="index-container border-box">
     <card-list @sendTitle="getTitle" />
 
     <div class="sale-card">
@@ -7,19 +7,19 @@
         <template slot="title"> {{ currentName }} 统计图 </template>
       </sale-title>
       <a-row class="sale-container" :gutter="16">
-        <a-col :span="16" style="height:100%">
+        <a-col :span="16" style="height: 100%">
           <line-chart :chartData="lineData" :title="currentName" />
         </a-col>
-        <a-col :span="8" style="height:100%">
-          <div class="shop-title">门店{{ currentName }}排行榜 Top10</div>
-          <shop-rank style="height:calc(100% - 50px)" :rankData="rankData" />
+        <a-col :span="8" style="height: 100%">
+          <div class="shop-title">全国{{ currentName }}排行榜 Top10</div>
+          <shop-rank style="height: calc(100% - 50px)" :rankData="rankData" />
         </a-col>
       </a-row>
     </div>
 
-    <a-row :gutter="24" class="sale-list ">
+    <a-row :gutter="24" class="sale-list">
       <a-col :span="8">
-        <a-card title="消费种类占比" :hoverable="true" :bordered="false">
+        <a-card title="基础教育设施占比" :hoverable="true" :bordered="false">
           <pie-chart :chartData="pieData" />
         </a-card>
       </a-col>
@@ -29,7 +29,7 @@
         </a-card>
       </a-col>
       <a-col :span="8">
-        <a-card title="到店人数统计" :hoverable="true" :bordered="false">
+        <a-card title="访问人数统计" :hoverable="true" :bordered="false">
           <more-chart :chartData="moreData" />
         </a-card>
       </a-col>
@@ -53,9 +53,9 @@ export default {
   },
   data() {
     return {
-      currentName: '销售额',
-      currentKey: 'sale',
-      currentType: 'day',
+      currentName: '计算机台数',
+      currentKey: 'computer',
+      currentType: 'provinces',
       lineData: {},
       rankData: [],
       pieData: [],
@@ -89,8 +89,6 @@ export default {
       this.getHotData();
       this.getMoreData();
     },
-
-
 
     async getLineData() {
       const { currentType: type, currentKey } = this;

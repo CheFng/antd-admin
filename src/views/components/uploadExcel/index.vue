@@ -1,12 +1,12 @@
 <template>
   <div>
     <div class="file-wrapper relative">
-      <input ref="excel-upload" type="file" accept=".xlsx, .xls" @change="handleChange" style="display:none" />
+      <input ref="excel-upload" type="file" accept=".xlsx, .xls" @change="handleChange" style="display: none" />
       <a-button
         type="primary"
         icon="file-excel"
         size="large"
-        style="z-index:99"
+        style="z-index: 99"
         @click="handleUpload"
         :loading="loading"
       >
@@ -14,7 +14,7 @@
       </a-button>
       <p class="text">请选择Excel上传 支持(xlsx,xls)格式</p>
     </div>
-    <a-card :hoverable="true" :bordered="false" v-if="tableHead.length > 0" style="margin-top:30px">
+    <a-card :hoverable="true" :bordered="false" v-if="tableHead.length > 0" style="margin-top: 30px">
       <standard-table :pagination="false" :tableData="tableData" :tableHead="tableHead" />
     </a-card>
   </div>

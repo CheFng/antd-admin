@@ -1,7 +1,7 @@
 <template>
   <div id="openMap">
     <div class="direction">
-      <div class="text-center" style="font-size:1.3rem">N</div>
+      <div class="text-center" style="font-size: 1.3rem">N</div>
       <img src="../../../assets/map/north.png" class="northImg" alt />
     </div>
     <canvas id="canvas" width="50" height="150"> </canvas>

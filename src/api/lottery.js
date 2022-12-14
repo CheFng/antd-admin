@@ -17,7 +17,3 @@ export function getCircular(data) {
 export function getNineLucky(data) {
   return request.post('/lottery/nineLucky', data);
 }
-
-
-
-

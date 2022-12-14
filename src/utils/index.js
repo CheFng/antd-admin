@@ -13,11 +13,7 @@ export function param2Obj(url) {
   }
   return JSON.parse(
     '{"' +
-      decodeURIComponent(search)
-        .replace(/"/g, '\\"')
-        .replace(/&/g, '","')
-        .replace(/=/g, '":"')
-        .replace(/\+/g, ' ') +
+      decodeURIComponent(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g, '":"').replace(/\+/g, ' ') +
       '"}'
   );
 }
@@ -75,7 +71,7 @@ export function getGeoJson(adcode, childAdcode = '') {
       // eslint-disable-next-line
       AMapUI.loadUI(['geo/DistrictExplorer'], DistrictExplorer => {
         var districtExplorer = new DistrictExplorer();
-        districtExplorer.loadAreaNode(adcode, function(error, areaNode) {
+        districtExplorer.loadAreaNode(adcode, function (error, areaNode) {
           if (error) {
             console.error(error);
             reject(error);

@@ -26,7 +26,7 @@
           <div class="tabList">
             <p>标签</p>
             <template v-for="item in tagList">
-              <a-tag :key="item.title" style="margin-bottom:6px" closable :color="item.color">
+              <a-tag :key="item.title" style="margin-bottom: 6px" closable :color="item.color">
                 {{ item.title }}
               </a-tag>
             </template>
@@ -40,7 +40,7 @@
               @blur="inputConfirm"
               @keyup.enter="inputConfirm"
             />
-            <a-tag v-else style="cursor:pointer" @click="writeInput"> <a-icon type="plus" /> New Tag </a-tag>
+            <a-tag v-else style="cursor: pointer" @click="writeInput"> <a-icon type="plus" /> New Tag </a-tag>
           </div>
           <a-divider />
           <div class="skillList">

@@ -8,19 +8,19 @@
           <span><a-icon type="message" style="margin-right: 8px" /> {{ item.message }}</span>
         </template>
         <a-list-item-meta>
-          <a slot="title" :href="item.url" target="_blank" style="font-size:1rem">{{ item.title }}</a>
+          <a slot="title" :href="item.url" target="_blank" style="font-size: 1rem">{{ item.title }}</a>
           <div slot="description" class="listDescription">
             <template v-for="tag in item.tagList">
-              <a-tag :key="tag.title" style="margin-bottom:6px" :color="tag.color">
+              <a-tag :key="tag.title" style="margin-bottom: 6px" :color="tag.color">
                 {{ tag.title }}
               </a-tag>
             </template>
             {{ item.time }}
-            <div style="margin:7px 0 5px">{{ item.description }}</div>
+            <div style="margin: 7px 0 5px">{{ item.description }}</div>
           </div>
         </a-list-item-meta>
       </a-list-item>
-      <div slot="footer" v-if="data.length > 0" style="text-align: center; margin-top: 16px;">
+      <div slot="footer" v-if="data.length > 0" style="text-align: center; margin-top: 16px">
         <a-button @click="loadMore" :loading="loadingMore">加载更多</a-button>
       </div>
     </a-list>

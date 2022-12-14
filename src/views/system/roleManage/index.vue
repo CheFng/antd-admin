@@ -2,9 +2,7 @@
   <div class="roleManage-wrapper">
     <a-card :hoverable="true" :bordered="false">
       <div slot="title" class="flex flex-wrap">
-        <a-button type="primary" icon="plus" class="select-bottom" @click="handleAdd">
-          新增角色
-        </a-button>
+        <a-button type="primary" icon="plus" class="select-bottom" @click="handleAdd"> 新增角色 </a-button>
       </div>
       <standard-table :tableData="tableData" :tableHead="tableHead" :loading="loading" :pagination="false">
         <div slot="index" slot-scope="{ index }">
@@ -12,9 +10,7 @@
         </div>
 
         <div slot="action" slot-scope="{ text }">
-          <a-button type="primary" size="small" @click="handleEdit(text)">
-            编辑
-          </a-button>
+          <a-button type="primary" size="small" @click="handleEdit(text)"> 编辑 </a-button>
           <a-popconfirm
             title="你确定要删除当前列吗?"
             ok-text="是"
@@ -22,7 +18,7 @@
             :disabled="text.role && text.role == 'admin'"
             @confirm="handleDelete(text)"
           >
-            <a-button type="danger" size="small" style="margin-left:8px" :disabled="text.role && text.role == 'admin'">
+            <a-button type="danger" size="small" style="margin-left: 8px" :disabled="text.role && text.role == 'admin'">
               删除
             </a-button>
           </a-popconfirm>

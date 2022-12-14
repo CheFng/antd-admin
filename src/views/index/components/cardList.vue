@@ -2,49 +2,27 @@
   <div class="cardList-wrapper">
     <a-row :gutter="24">
       <a-col :xs="12" :md="12" :sm="12" :lg="6">
-        <div class="card-item card-item-one" @click="sendTitle('销售额', 'sale')">
+        <div class="card-item card-item-one" @click="sendTitle('计算机台数', 'computer')">
           <div class="card-title">
-            <a-space :size="8"> <svg-icon icon="sale" :size="20" /> 总销售额 </a-space>
+            <a-space :size="8"> <svg-icon icon="visit" :size="20" /> 计算机台数 </a-space>
           </div>
           <div class="all-count">
-            ¥ <count-to :startVal="0" :endVal="12367" :duration="2200" />
+            <count-to :startVal="0" :endVal="1490" :duration="2200" />
             <span class="suffix">万</span>
           </div>
           <div class="card-info relative">
             <div class="abs-bottom">
-              <div style="margin-right:20px" class="inline-block">
-                日销售额：
+              <div style="margin-right: 20px" class="inline-block">
+                年增长计算机台数：
                 <a-space :size="8">
-                  <span class="bold">¥ 28万</span>
+                  <span class="bold">73万</span>
                   <a-icon type="caret-up" class="up" />
                 </a-space>
               </div>
               <div class="inline-block">
                 同比增长：
                 <a-space :size="8">
-                  <span class="bold">6%</span>
-                  <a-icon type="caret-down" class="down" />
-                </a-space>
-              </div>
-            </div>
-          </div>
-        </div>
-      </a-col>
-      <a-col :xs="12" :md="12" :sm="12" :lg="6">
-        <div class="card-item card-item-two" @click="sendTitle('访问量', 'visit')">
-          <div class="card-title">
-            <a-space :size="8"> <svg-icon icon="visit" :size="20" /> 访问量 </a-space>
-          </div>
-          <div class="all-count">
-            <count-to :startVal="0" :endVal="3750" :duration="2200" />
-            <span class="suffix">万次</span>
-          </div>
-          <div class="card-info relative">
-            <div class="abs-bottom">
-              <div style="margin-right:20px" class="inline-block">
-                日访问量：
-                <a-space :size="8">
-                  <span class="bold">11万次</span>
+                  <span class="bold">4.8%</span>
                   <a-icon type="caret-up" class="up" />
                 </a-space>
               </div>
@@ -53,21 +31,28 @@
         </div>
       </a-col>
       <a-col :xs="12" :md="12" :sm="12" :lg="6">
-        <div class="card-item card-item-three" @click="sendTitle('加购数', 'shopCard')">
+        <div class="card-item card-item-two" @click="sendTitle('多媒体教室数', 'duomeiti')">
           <div class="card-title">
-            <a-space :size="8"> <svg-icon icon="shopCard" :size="20" /> 加购数 </a-space>
+            <a-space :size="8"> <svg-icon icon="visit" :size="20" /> 多媒体教室数 </a-space>
           </div>
           <div class="all-count">
-            <count-to :startVal="0" :endVal="129795" :duration="2200" />
-            <span class="suffix">个</span>
+            <count-to :startVal="0" :endVal="276" :duration="2200" />
+            <span class="suffix">万</span>
           </div>
           <div class="card-info relative">
             <div class="abs-bottom">
-              <div style="margin-right:20px" class="inline-block">
-                日加购数：
+              <div style="margin-right: 20px" class="inline-block">
+                年增长多媒体教室数：
                 <a-space :size="8">
-                  <span class="bold">1575</span>
-                  <a-icon type="caret-down" class="up" />
+                  <span class="bold">16万</span>
+                  <a-icon type="caret-up" class="up" />
+                </a-space>
+              </div>
+              <div class="inline-block">
+                同比增长：
+                <a-space :size="8">
+                  <span class="bold">5.7%</span>
+                  <a-icon type="caret-up" class="up" />
                 </a-space>
               </div>
             </div>
@@ -75,28 +60,57 @@
         </div>
       </a-col>
       <a-col :xs="12" :md="12" :sm="12" :lg="6">
-        <div class="card-item card-item-four" @click="sendTitle('支付数', 'pay')">
+        <div class="card-item card-item-three" @click="sendTitle('平板数', 'pingban')">
           <div class="card-title">
-            <a-space :size="8"> <svg-icon icon="pay" :size="20" /> 支付笔数 </a-space>
+            <a-space :size="8"> <svg-icon icon="visit" :size="20" /> 平板数 </a-space>
           </div>
           <div class="all-count">
-            <count-to :startVal="0" :endVal="13996" :duration="2200" />
-            <span class="suffix">笔</span>
+            <count-to :startVal="0" :endVal="113" :duration="2200" />
+            <span class="suffix">万</span>
           </div>
           <div class="card-info relative">
             <div class="abs-bottom">
-              <div style="margin-right:20px" class="inline-block">
-                日支付数：
+              <div style="margin-right: 20px" class="inline-block">
+                年增长平板数：
                 <a-space :size="8">
-                  <span class="bold">1950</span>
-                  <a-icon type="caret-down" class="up" />
+                  <span class="bold">35万</span>
+                  <a-icon type="caret-up" class="up" />
                 </a-space>
               </div>
               <div class="inline-block">
-                转换率：
+                同比增长：
                 <a-space :size="8">
-                  <span class="bold">66%</span>
-                  <a-icon type="caret-up" class="down" />
+                  <span class="bold">30%</span>
+                  <a-icon type="caret-up" class="up" />
+                </a-space>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a-col>
+      <a-col :xs="12" :md="12" :sm="12" :lg="6">
+        <div class="card-item card-item-four" @click="sendTitle('微机室面积', 'weiji')">
+          <div class="card-title">
+            <a-space :size="8"> <svg-icon icon="visit" :size="20" /> 微机室面积 </a-space>
+          </div>
+          <div class="all-count">
+            <count-to :startVal="0" :endVal="1920" :duration="2200" />
+            <span class="suffix">万</span>
+          </div>
+          <div class="card-info relative">
+            <div class="abs-bottom">
+              <div style="margin-right: 20px" class="inline-block">
+                年增长微机室面积：
+                <a-space :size="8">
+                  <span class="bold">46万</span>
+                  <a-icon type="caret-up" class="up" />
+                </a-space>
+              </div>
+              <div class="inline-block">
+                同比增长：
+                <a-space :size="8">
+                  <span class="bold">2.3%</span>
+                  <a-icon type="caret-up" class="up" />
                 </a-space>
               </div>
             </div>
@@ -143,19 +157,19 @@ export default {
     }
     &.card-item-two {
       @include cardBg(#3dadf6, #737bfc);
-       &:hover {
+      &:hover {
         box-shadow: 0 5px 10px #737bfc;
       }
     }
     &.card-item-three {
       @include cardBg(#ea677c, #ef9b5f);
-       &:hover {
+      &:hover {
         box-shadow: 0 5px 10px #ef9b5f;
       }
     }
     &.card-item-four {
       @include cardBg(#42d79b, #a6e25f);
-       &:hover {
+      &:hover {
         box-shadow: 0 5px 10px #a6e25f;
       }
     }

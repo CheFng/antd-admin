@@ -93,7 +93,7 @@ export default {
           ],
           series: [
             {
-              name: '本期' + this.title,
+              name: '今年' + this.title,
               smooth: true,
               type: 'line',
               symbol: 'circle',
@@ -116,7 +116,7 @@ export default {
               }
             },
             {
-              name: '同期' + this.title,
+              name: '去年' + this.title,
               smooth: true,
               type: 'line',
               symbol: 'circle',

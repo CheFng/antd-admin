@@ -19,16 +19,10 @@
           />
         </a-col>
         <a-col :span="8">
-          <a-button type="link" @click="changePassword('save')" v-if="passwordStatus == 'change'">
-            修改
-          </a-button>
+          <a-button type="link" @click="changePassword('save')" v-if="passwordStatus == 'change'"> 修改 </a-button>
           <div v-else>
-            <a-button type="link">
-              保存
-            </a-button>
-            <span style="margin-left:-5px">
-              取消
-            </span>
+            <a-button type="link"> 保存 </a-button>
+            <span style="margin-left: -5px"> 取消 </span>
           </div>
         </a-col>
       </a-row>
@@ -39,9 +33,7 @@
           <a-input-password ref="payPassword" v-model="securityFrom.payPassword" placeholder="请输入支付密码"
         /></a-col>
         <a-col :span="8">
-          <a-button type="link">
-            修改
-          </a-button>
+          <a-button type="link"> 修改 </a-button>
         </a-col>
       </a-row>
     </a-form-model-item>
@@ -53,9 +45,7 @@
           </a-input>
         </a-col>
         <a-col :span="8">
-          <a-button type="link">
-            修改
-          </a-button>
+          <a-button type="link"> 修改 </a-button>
         </a-col>
       </a-row>
     </a-form-model-item>
@@ -65,9 +55,7 @@
           <a-input placeholder="请输入银行卡号" disabled v-model="securityFrom.bankCard" />
         </a-col>
         <a-col :span="8">
-          <a-button type="link">
-            解绑
-          </a-button>
+          <a-button type="link"> 解绑 </a-button>
         </a-col>
       </a-row>
     </a-form-model-item>
@@ -77,9 +65,7 @@
           <a-input v-model="securityFrom.wechat" disabled />
         </a-col>
         <a-col :span="8">
-          <a-button type="link">
-            解绑
-          </a-button>
+          <a-button type="link"> 解绑 </a-button>
         </a-col>
       </a-row>
     </a-form-model-item>

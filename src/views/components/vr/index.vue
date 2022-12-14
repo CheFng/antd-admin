@@ -1,5 +1,5 @@
 <template>
-  <div class="PSViewer" ref="psvdbg" style="height:calc(100vh - 148px);"></div>
+  <div class="PSViewer" ref="psvdbg" style="height: calc(100vh - 148px)"></div>
 </template>
 
 <script>
@@ -67,7 +67,7 @@ export default {
           ]
         ]
       });
-      PSV.on('click', function(e) {
+      PSV.on('click', function (e) {
         // console.log(e);
         // console.log(MarkersButton);
         // console.log(PSV.buttons.MarkersButton);

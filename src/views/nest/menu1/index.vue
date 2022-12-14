@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>嵌套菜单1 <a-rate v-model="value" style="margin-left:10px" /></p>
+    <p>嵌套菜单1 <a-rate v-model="value" style="margin-left: 10px" /></p>
     <router-view />
   </div>
 </template>

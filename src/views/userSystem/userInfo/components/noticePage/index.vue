@@ -9,7 +9,7 @@
           <a-avatar slot="avatar" :src="item.imgUrl" />
           <div slot="description">
             {{ item.description }}
-            <div style="margin-top:8px">{{ item.time }}</div>
+            <div style="margin-top: 8px">{{ item.time }}</div>
           </div>
         </a-list-item-meta>
       </a-list-item>

@@ -29,21 +29,13 @@
         </a-form-model-item>
         <a-form-model-item prop="reviewer" label="审核人">
           <a-radio-group v-model="form.reviewer">
-            <a-radio value="Siri">
-              Siri
-            </a-radio>
-            <a-radio value="Timi">
-              Timi
-            </a-radio>
+            <a-radio value="Siri"> Siri </a-radio>
+            <a-radio value="Timi"> Timi </a-radio>
           </a-radio-group>
         </a-form-model-item>
         <a-form-model-item :wrapper-col="{ span: 24 }" class="text-center">
-          <a-button type="primary" @click="addFormData">
-            添加
-          </a-button>
-          <a-button style="margin-left: 10px;" @click="resetFrom">
-            取消
-          </a-button>
+          <a-button type="primary" @click="addFormData"> 添加 </a-button>
+          <a-button style="margin-left: 10px" @click="resetFrom"> 取消 </a-button>
         </a-form-model-item>
       </a-form-model>
     </a-card>

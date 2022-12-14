@@ -7,7 +7,7 @@
     </div>
     <div class="graph-list">
       <a-card title="海贼王人物关系图" :hoverable="true" :bordered="false">
-        <tree-graph class="chart-graph" style="height:750px" />
+        <tree-graph class="chart-graph" style="height: 750px" />
       </a-card>
     </div>
   </div>

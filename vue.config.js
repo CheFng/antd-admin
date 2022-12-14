@@ -55,10 +55,7 @@ module.exports = {
     config.plugins.delete('prefetch');
     config.plugins.delete('preload');
     // 设置svg
-    config.module
-      .rule('svg')
-      .exclude.add(resolve('src/icons'))
-      .end();
+    config.module.rule('svg').exclude.add(resolve('src/icons')).end();
     config.module
       .rule('icons')
       .test(/\.svg$/)

@@ -2,13 +2,11 @@
   <div class="userManage-wrapper">
     <a-card :hoverable="true" :bordered="false">
       <div slot="title" class="flex flex-wrap">
-        <a-button type="primary" icon="plus" class="select-bottom" @click="handleAdd">
-          新增用户
-        </a-button>
+        <a-button type="primary" icon="plus" class="select-bottom" @click="handleAdd"> 新增用户 </a-button>
         <a-button
           type="danger"
           icon="delete"
-          style="margin:0 16px 10px"
+          style="margin: 0 16px 10px"
           :loading="deleteLoading"
           @click="handleBatchDelete"
         >
@@ -28,12 +26,12 @@
         />
         <a-range-picker
           class="select-width"
-          style="width:210px"
+          style="width: 210px"
           :placeholder="['开始日期', '结束日期']"
           allowClear
           @change="changeTime"
         />
-        <a-button type="primary" icon="search" class="select-bottom" style="margin-right:16px" @click="handleSearch">
+        <a-button type="primary" icon="search" class="select-bottom" style="margin-right: 16px" @click="handleSearch">
           查询
         </a-button>
         <a-button type="primary" icon="export" class="select-bottom" @click="handleExport" :loading="exportLoading">
@@ -51,14 +49,17 @@
           {{ index + 1 }}
         </div>
         <div slot="role" slot-scope="{ text }">
-          <a-tag  v-for="(item,index) in text.split(',')" :key="index" :color="item | statusFilter" style="margin-bottom:6px">
+          <a-tag
+            v-for="(item, index) in text.split(',')"
+            :key="index"
+            :color="item | statusFilter"
+            style="margin-bottom: 6px"
+          >
             {{ item | textFilter(roleOption) }}
           </a-tag>
         </div>
         <div slot="action" slot-scope="{ text }">
-          <a-button type="primary" size="small" @click="handleEdit(text)">
-            编辑
-          </a-button>
+          <a-button type="primary" size="small" @click="handleEdit(text)"> 编辑 </a-button>
           <a-popconfirm
             title="你确定要删除当前列吗?"
             ok-text="是"
@@ -66,7 +67,7 @@
             :disabled="text.role && text.role == 'admin'"
             @confirm="handleDelete(text)"
           >
-            <a-button type="danger" size="small" style="margin-left:8px" :disabled="text.role && text.role == 'admin'">
+            <a-button type="danger" size="small" style="margin-left: 8px" :disabled="text.role && text.role == 'admin'">
               删除
             </a-button>
           </a-popconfirm>
@@ -151,7 +152,7 @@ export default {
       return statusList[status];
     },
     textFilter(text, roleOption) {
-     const roleItem = roleOption.find(item => item.role == text);
+      const roleItem = roleOption.find(item => item.role == text);
       if (roleItem) {
         return roleItem.roleString;
       }

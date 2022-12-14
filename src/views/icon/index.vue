@@ -4,7 +4,7 @@
       <a-list-item slot="renderItem" slot-scope="item">
         <div class="text-center pointer icon-wrapper" @click.capture.stop="handleCopy(item, $event)">
           <svg-icon :icon="item" :size="30" class="disabled" />
-          <div style="margin-top:8px">{{ item }}</div>
+          <div style="margin-top: 8px">{{ item }}</div>
         </div>
       </a-list-item>
     </a-list>

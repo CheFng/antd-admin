@@ -2,13 +2,13 @@
   <scroll-bar class="shopRank-wrapper all-container">
     <vue-seamless-scroll :data="rankData" :class-option="classOption" :key="num">
       <div class="shop-item flex" v-for="(item, index) in rankData" :key="index">
-        <div style="width:130px">
+        <div style="width: 130px">
           <span class="rankIndex inline-block">
             <svg-icon :icon="rankIndex[index + 1]" :size="30" v-if="index < 3" />
             <span v-else> {{ index + 1 }}</span>
           </span>
 
-          <span style="margin-left:10px">{{ item.area }}</span>
+          <span style="margin-left: 10px">{{ item.area }}</span>
         </div>
         <a-progress
           :stroke-color="{
@@ -19,7 +19,7 @@
           class="flex-sub"
           :showInfo="false"
         />
-        <div style="margin-left:10px">{{ item.value }}</div>
+        <div style="margin-left: 10px">{{ item.value }}万</div>
       </div>
     </vue-seamless-scroll>
   </scroll-bar>
@@ -32,7 +32,7 @@ export default {
   props: {
     rankData: Array
   },
-  components: { vueSeamlessScroll },
+  component: { vueSeamlessScroll },
   data() {
     return {
       classOption: {

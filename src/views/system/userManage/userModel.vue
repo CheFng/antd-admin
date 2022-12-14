@@ -35,7 +35,7 @@
           mode="multiple"
           placeholder="请选择角色"
           allowClear
-          :default-value="userFrom.role?userFrom.role.split(','):undefined"
+          :default-value="userFrom.role ? userFrom.role.split(',') : undefined"
           @change="changeRole"
         >
           <a-select-option v-for="item in roleOption" :key="item.role">
@@ -58,7 +58,7 @@
           placeholder="请输入个人技能"
           :maxTagCount="3"
           allowClear
-          :default-value="userFrom.skill?userFrom.skill.split(','):undefined"
+          :default-value="userFrom.skill ? userFrom.skill.split(',') : undefined"
           @change="changeSkill"
         >
           <a-select-option v-for="item in SKILL_LIST" :key="item.label">

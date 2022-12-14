@@ -1,5 +1,5 @@
 import { baseRoute, asyncRoutes } from '@/router';
-import { setCache } from '@/utils/session';
+// import { setCache } from '@/utils/session';
 import router, { resetRouter } from '@/router';
 const state = {
   routes: []

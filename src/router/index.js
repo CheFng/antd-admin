@@ -5,9 +5,9 @@ Vue.use(VueRouter);
 
 import Layout from '@/layouts';
 import mainLayout from '@/layouts/mainLayout';
-import echartRouter from './modules/echarts';
+// import echartRouter from './modules/echarts';
 import componentsRouter from './modules/components';
-import nestRouter from './modules/nest';
+// import nestRouter from './modules/nest';
 
 //基础路由
 export const baseRoute = [
@@ -51,45 +51,15 @@ export const asyncRoutes = [
           icon: 'dashboard'
         }
       },
-
-      {
-        name: 'icon',
-        path: '/icon',
-        component: () => import('@/views/icon/index'),
-        meta: {
-          role: 2,
-          title: '图标',
-          icon: 'icon'
-        }
-      },
-      {
-        name: 'drag',
-        path: 'http://gist006.gitee.io/vue-visual-drag/#/',
-        component:Layout,
-        meta: {
-          title: '可视化拖拽',
-          icon: 'drag',
-          role: 3,
-        }
-      },
       {
         name: 'vue3',
-        path: 'https://gist006.gitee.io/vue3-bigdata/#/homepage',
-        component:Layout,
+        // path: 'https://gist006.gitee.io/vue3-bigdata/#/homepage',
+        path: 'http://localhost:9000/#/homepage',
+        component: Layout,
         meta: {
           title: 'vue3大屏',
           icon: 'vue3',
-          role: 3,
-        }
-      },
-      {
-        name: 'music',
-        path: 'http://gist006.gitee.io/uni-music/#/',
-        component:Layout,
-        meta: {
-          title: '听听音乐',
-          icon: 'music',
-          role: 3,
+          role: 3
         }
       },
       {
@@ -117,36 +87,29 @@ export const asyncRoutes = [
           }
         ]
       },
-      echartRouter,
-      componentsRouter,
-      nestRouter,
       {
-        name: 'error',
-        path: '/error',
-        component: mainLayout,
-        redirect: '/error/403',
-        meta: { title: '错误页面', icon: 'error', role: 7 },
-        children: [
-          {
-            name: '403',
-            path: '/error/403',
-            component: () => import('@/views/error/403'),
-            meta: { title: '403', role: 8 }
-          },
-          {
-            name: '404',
-            path: '/error/404',
-            component: () => import('@/views/error/404'),
-            meta: { title: '404', role: 9 }
-          },
-          {
-            name: '500',
-            path: '/error/500',
-            component: () => import('@/views/error/500'),
-            meta: { title: '500', role: 10 }
-          }
-        ]
+        name: 'pbase',
+        path: '/pbase',
+        component: () => import('@/views/pbase/index'),
+        meta: {
+          role: 5,
+          title: '基础信息管理',
+          icon: 'component'
+        }
       },
+      {
+        name: 'excel',
+        path: '/excel',
+        component: () => import('@/views/components/uploadExcel/index'),
+        meta: {
+          role: 6,
+          title: '上传Excel',
+          icon: 'component'
+        }
+      },
+      // echartRouter,
+      // componentsRouter,
+      // nestRouter,
       {
         name: 'userSystem',
         component: mainLayout,
@@ -198,7 +161,7 @@ export const asyncRoutes = [
   { path: '*', redirect: '/404', hidden: true }
 ];
 
-const createRouter = function() {
+const createRouter = function () {
   return new VueRouter({
     routes: baseRoute,
     scrollBehavior: () => ({ y: 0 })

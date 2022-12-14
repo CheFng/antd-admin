@@ -1,13 +1,13 @@
 /* istanbul ignore next */
-export const on = (function() {
+export const on = (function () {
   if (document.addEventListener) {
-    return function(element, event, handler) {
+    return function (element, event, handler) {
       if (element && event && handler) {
         element.addEventListener(event, handler, false);
       }
     };
   } else {
-    return function(element, event, handler) {
+    return function (element, event, handler) {
       if (element && event && handler) {
         element.attachEvent('on' + event, handler);
       }
@@ -16,15 +16,15 @@ export const on = (function() {
 })();
 
 /* istanbul ignore next */
-export const off = (function() {
+export const off = (function () {
   if (document.removeEventListener) {
-    return function(element, event, handler) {
+    return function (element, event, handler) {
       if (element && event) {
         element.removeEventListener(event, handler, false);
       }
     };
   } else {
-    return function(element, event, handler) {
+    return function (element, event, handler) {
       if (element && event) {
         element.detachEvent('on' + event, handler);
       }
@@ -77,7 +77,7 @@ export function scrollbarWidth() {
 
 import ResizeObserver from 'resize-observer-polyfill';
 
-const resizeHandler = function(entries) {
+const resizeHandler = function (entries) {
   for (let entry of entries) {
     const listeners = entry.target.__resizeListeners__ || [];
     if (listeners.length) {
@@ -89,7 +89,7 @@ const resizeHandler = function(entries) {
 };
 
 /* istanbul ignore next */
-export const addResizeListener = function(element, fn) {
+export const addResizeListener = function (element, fn) {
   if (!element.__resizeListeners__) {
     element.__resizeListeners__ = [];
     element.__ro__ = new ResizeObserver(resizeHandler);
@@ -99,7 +99,7 @@ export const addResizeListener = function(element, fn) {
 };
 
 /* istanbul ignore next */
-export const removeResizeListener = function(element, fn) {
+export const removeResizeListener = function (element, fn) {
   if (!element || !element.__resizeListeners__) return;
   element.__resizeListeners__.splice(element.__resizeListeners__.indexOf(fn), 1);
   if (!element.__resizeListeners__.length) {

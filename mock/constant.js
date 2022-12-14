@@ -39,13 +39,13 @@ const userData = [
     username: 'admin',
     password: '123456',
     role: 'admin',
-    date: '2020-10-13',
+    date: '2022-12-13',
     text: '系统管理员，拥有所有权限',
     key: 'admin',
-    location: 'Wuhan',
-    position: '混元太极门掌门人',
-    label: '年轻人不讲武德',
-    skill: '闪电五连鞭'
+    location: '武汉',
+    position: '系统管理员',
+    label: '每天996,快活似神仙',
+    skill: 'SpringBoot + Vue'
   },
   {
     id: parseInt(Math.random() * 1000000000000),

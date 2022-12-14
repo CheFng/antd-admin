@@ -2,6 +2,32 @@
   <div class="table-wrapper">
     <a-card :hoverable="true" :bordered="false">
       <div slot="title" class="flex flex-wrap">
+        <div class="filter-wrapper">
+          <span class="label">省份：</span>
+          <a-input placeholder="省份模糊搜索" class="select-width" v-model="filterList.province" />
+        </div>
+        <div class="filter-wrapper" style="margin: 0 15px">
+          <span class="label">筛选：</span>
+          <a-cascader
+            placeholder="请选择"
+            style="width: 160px"
+            :options="option"
+            @change="upDateType"
+            multiple
+            placement="topRight"
+            maxTagCount="responsive"
+          />
+        </div>
+        <!-- <div class="filter-wrapper" style="margin: 0 15px">
+          <span class="label">阶段：</span>
+          <a-select placeholder="请选择阶段" class="select-width" allowClear @change="changeStage">
+            <a-select-option v-for="item in stageOption" :key="item.key" :value="item.key">
+              {{ item.label }}
+            </a-select-option>
+          </a-select>
+        </div>
+        -->
+
         <a-button
           type="danger"
           icon="delete"
@@ -11,18 +37,6 @@
         >
           批量删除
         </a-button>
-        <div class="filter-wrapper">
-          <span class="label">付款人：</span>
-          <a-input placeholder="付款人" class="select-width" v-model="filterList.name" />
-        </div>
-        <div class="filter-wrapper" style="margin: 0 15px">
-          <span class="label">订单状态：</span>
-          <a-select placeholder="订单状态" class="select-width" allowClear @change="changeStatus">
-            <a-select-option v-for="item in typeOption" :key="item.key" :value="item.key">
-              {{ item.label }}
-            </a-select-option>
-          </a-select>
-        </div>
 
         <a-button type="primary" icon="search" class="select-bottom" style="margin-right: 16px" @click="search">
           查询
@@ -37,7 +51,7 @@
         :tableHead="tableHead"
         :loading="loading"
         :pagination="{
-          pageSize: filterList.size,
+          pageSize: filterList.limit,
           current: filterList.page,
           total: filterList.total,
           showTotal: total => `${filterList.total} 条`
@@ -68,23 +82,23 @@
       @cancel="editShow = false"
     >
       <a-form-model :label-col="{ span: 4 }" :wrapper-col="{ span: 16 }" hideRequiredMark>
-        <a-form-model-item prop="id" label="id">
-          <a-input v-model="currentEdit.id" disabled />
+        <a-form-model-item prop="year" label="年份">
+          <a-input v-model="currentEdit.year" disabled />
         </a-form-model-item>
-        <a-form-model-item prop="name" label="付款人">
-          <a-input v-model="currentEdit.name" disabled />
+        <a-form-model-item prop="province" label="省份">
+          <a-input v-model="currentEdit.province" disabled />
         </a-form-model-item>
-        <a-form-model-item prop="status" label="订单状态">
-          <a-input v-model="currentEdit.status" disabled />
+        <a-form-model-item prop="stage" label="阶段">
+          <a-input v-model="currentEdit.stage" disabled />
         </a-form-model-item>
-        <a-form-model-item prop="date" label="下单时间">
-          <a-input v-model="currentEdit.date" disabled />
+        <a-form-model-item prop="avg" label="均分方式">
+          <a-input v-model="currentEdit.avg" disabled />
         </a-form-model-item>
-        <a-form-model-item prop="money" label="付款金额">
-          <a-input v-model="currentEdit.money" disabled />
+        <a-form-model-item prop="base" label="基础类型">
+          <a-input v-model="currentEdit.base" disabled />
         </a-form-model-item>
-        <a-form-model-item prop="text" label="备注">
-          <a-input v-model="currentEdit.text" />
+        <a-form-model-item prop="pbValue" label="数值">
+          <a-input v-model="currentEdit.pbValue" />
         </a-form-model-item>
       </a-form-model>
     </a-modal>
@@ -93,7 +107,7 @@
 
 <script>
 import standardTable from '@/components/standardTable/index';
-import { getTableData, deleteTable, batchDeleteTable, editTable } from '@/api/table';
+import { getTableData, deleteTable, batchDeleteTable, editTable } from '@/api/pbase';
 import { formatJson } from '@/utils';
 export default {
   name: 'tables',
@@ -101,26 +115,115 @@ export default {
 
   data() {
     return {
-      typeOption: [
+      value: [],
+      option: [
         {
-          key: '待付款',
-          label: '待付款'
+          value: '年份',
+          label: '年份',
+          children: [
+            {
+              value: '2011',
+              label: '2011'
+            },
+            {
+              value: '2012',
+              label: '2012'
+            },
+            {
+              value: '2013',
+              label: '2013'
+            },
+            {
+              value: '2014',
+              label: '2014'
+            },
+            {
+              value: '2015',
+              label: '2015'
+            },
+            {
+              value: '2016',
+              label: '2016'
+            },
+            {
+              value: '2017',
+              label: '2017'
+            },
+            {
+              value: '2018',
+              label: '2018'
+            },
+            {
+              value: '2019',
+              label: '2019'
+            },
+            {
+              value: '2020',
+              label: '2020'
+            }
+          ]
         },
         {
-          key: '待发货',
-          label: '待发货'
+          value: '阶段',
+          label: '阶段',
+          children: [
+            {
+              value: '小学',
+              label: '小学'
+            },
+            {
+              value: '初中',
+              label: '初中'
+            }
+          ]
         },
         {
-          key: '已发货',
-          label: '已发货'
+          value: '均分方式',
+          label: '均分方式',
+          children: [
+            {
+              value: '百生均',
+              label: '百生均'
+            },
+            {
+              value: '校均',
+              label: '校均'
+            }
+          ]
         },
         {
-          key: '已收货',
-          label: '已收货'
-        },
-        {
-          key: '已评价',
-          label: '已评价'
+          value: '基础类型',
+          label: '基础类型',
+          children: [
+            {
+              value: '学校数',
+              label: '学校数'
+            },
+            {
+              value: '学生数',
+              label: '学生数'
+            },
+            {
+              value: '计算机台数',
+              label: '计算机台数'
+            },
+            {
+              value: '平板数',
+              label: '平板数'
+            },
+            {
+              value: '多媒体教室数',
+              label: '多媒体教室数'
+            },
+            {
+              value: '微机室面积',
+              label: '微机室面积'
+            },
+            {
+              value: '信息老师数',
+              label: '信息老师数'
+            }
+          ]
         }
       ],
       tableHead: [
@@ -131,31 +234,41 @@ export default {
           width: 60
         },
         {
-          title: '用户id',
-          dataIndex: 'id',
+          title: '年份',
+          dataIndex: 'year',
           ellipsis: true
         },
         {
-          title: '付款人',
-          dataIndex: 'name'
+          title: '省份',
+          dataIndex: 'province'
         },
         {
-          title: '订单状态',
-          dataIndex: 'status'
+          title: '阶段',
+          dataIndex: 'stage'
         },
         {
-          title: '下单时间',
-          dataIndex: 'date',
+          title: '均分方式',
+          dataIndex: 'avg',
           ellipsis: true
         },
         {
-          title: '付款金额',
-          dataIndex: 'money',
-          scopedSlots: { customRender: 'money' }
+          title: '基础类型',
+          dataIndex: 'base',
+          scopedSlots: { customRender: 'base' }
         },
         {
-          title: '备注',
-          dataIndex: 'text',
+          title: '数值',
+          dataIndex: 'pbValue',
+          ellipsis: true
+        },
+        {
+          title: '创建时间',
+          dataIndex: 'gmtCreate',
+          ellipsis: true
+        },
+        {
+          title: '最后修改时间',
+          dataIndex: 'gmtModified',
           ellipsis: true
         },
         {
@@ -171,11 +284,14 @@ export default {
       currentEdit: {},
       editShow: false,
       filterList: {
-        name: '',
-        status: '',
         page: 1,
-        size: 15,
-        total: 0
+        limit: 15,
+        total: 0,
+        year: '',
+        province: '',
+        stage: '',
+        avg: '',
+        base: ''
       },
       deleteLoading: false,
       exportLoading: false
@@ -192,17 +308,18 @@ export default {
 
     getTableData() {
       this.loading = true;
-      const { name, status, page, size } = this.filterList;
-      getTableData({ page, size, name, status }).then(res => {
+      const { page, limit, year, province, stage, avg, base } = this.filterList;
+      getTableData({ page, limit, year, province, stage, avg, base }).then(res => {
         const data = res.data || {};
         this.filterList.total = data.total || 0;
-        this.tableData = data.list || [];
+        this.tableData = data.records || [];
         this.loading = false;
       });
     },
 
-    changeStatus(val) {
-      this.filterList.status = val;
+    upDateType(val) {
+      console.log(val);
+      this.filterList.year = val[0];
     },
 
     handleChangeCurrent(val) {

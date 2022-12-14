@@ -1,7 +1,7 @@
 <template>
   <div id="mapView" class="relative">
     <div class="mapList" v-show="current == 'toggle'">
-      <scroll-bar style="width:250px; height:550px;color:#fff">
+      <scroll-bar style="width: 250px; height: 550px; color: #fff">
         <div id="basemapGallery"></div>
       </scroll-bar>
     </div>

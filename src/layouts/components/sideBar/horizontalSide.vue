@@ -1,5 +1,5 @@
 <template>
-  <div class="horizontalSide-wrapper flex-sub ">
+  <div class="horizontalSide-wrapper flex-sub">
     <logo class="horizontalSide-logo" />
     <a-menu mode="horizontal" theme="dark" :selectedKeys="[$route.path]" class="side-main">
       <template v-for="item in baseRoute">
